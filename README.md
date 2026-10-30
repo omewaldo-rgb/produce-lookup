@@ -1,6 +1,6 @@
 # Produce Lookup
 
-A small web app for looking up produce item codes quickly during inventory counts. It is a single Node.js/Express server (`server.js`) that serves both the API and the mobile-friendly frontend, and it can be installed to a phone's home screen as a PWA.
+A produce code lookup app I built for inventory counts at the retail store where I work, used daily at three stores. It is a single Node.js/Express server (`server.js`) that serves both the API and the mobile-friendly frontend, and it can be installed to a phone's home screen as a PWA.
 
 Data is stored as JSON files in a local `data/` directory, so there is no database to set up.
 
@@ -118,3 +118,11 @@ Stored in `data/` (mount this as a volume in Docker, and back it up):
 | `audit.json` | Change history (capped at 5,000 entries) |
 
 Store codes are kept in `config.json` in plain text, so keep `data/` private.
+
+## How I built it
+
+I'm an assistant manager at a retail store, and I built this app to look up produce codes during inventory counts. It's used daily at three stores.
+
+I run it on a Raspberry Pi in Docker, over Tailscale. I built it with Claude's help, and I made the design decisions myself: three access levels (staff, manager and admin), an audit log of every change, and per-store codes.
+
+Before publishing, I did a security review and removed the default credentials.
